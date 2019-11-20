@@ -9,6 +9,9 @@ events {
 }
 
 http {
+  upstream robotapp {
+      server ##PROXY_PASS##;
+  }
   access_log /dev/stdout;
 
   server {
@@ -21,7 +24,7 @@ http {
     include /etc/nginx/conf.d/*.conf;
 
     location / {
-      proxy_pass ##PROXY_PASS##;
+      proxy_pass http://tobotappp;
       auth_basic "Restricted";
       auth_basic_user_file /etc/nginx/.htpasswd;
 
