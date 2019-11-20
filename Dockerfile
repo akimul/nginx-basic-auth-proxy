@@ -5,7 +5,7 @@ RUN apk add --no-cache --update \
       apache2-utils
 RUN rm -f /etc/nginx/conf.d/*
 
-ENV SERVER_NAME akimul.com
+ENV SERVER_NAME nginx-myproject.192.168.42.13.nip.io
 ENV PORT 8080
 ENV CLIENT_MAX_BODY_SIZE 1m
 ENV PROXY_READ_TIMEOUT 60s
