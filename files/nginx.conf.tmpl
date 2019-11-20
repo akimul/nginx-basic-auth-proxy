@@ -24,7 +24,7 @@ http {
     include /etc/nginx/conf.d/*.conf;
 
     location / {
-      proxy_pass http://tobotappp;
+      proxy_pass http://robotapp;
       auth_basic "Restricted";
       auth_basic_user_file /etc/nginx/.htpasswd;
 
