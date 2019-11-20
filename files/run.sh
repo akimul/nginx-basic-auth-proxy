@@ -17,7 +17,12 @@ if [ -z $PROXY_PASS ]; then
   exit 1
 fi
 
-htpasswd -bBc /etc/nginx/.htpasswd $BASIC_AUTH_USERNAME $BASIC_AUTH_PASSWORD
+if [ ! -f "/etc/nginx/.htpasswd" ]; then
+  echo "generation pass"
+  htpasswd -bBc /etc/nginx/.htpasswd $BASIC_AUTH_USERNAME $BASIC_AUTH_PASSWORD
+  echo "generated"
+fi
+
 sed \
   -e "s/##CLIENT_MAX_BODY_SIZE##/$CLIENT_MAX_BODY_SIZE/g" \
   -e "s/##PROXY_READ_TIMEOUT##/$PROXY_READ_TIMEOUT/g" \
