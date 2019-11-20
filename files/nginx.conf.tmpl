@@ -10,7 +10,7 @@ events {
 
 http {
   upstream robotapp {
-      server ##PROXY_PASS##;
+      server ##PROXY_PASS##:80;
   }
   access_log /dev/stdout;
 
