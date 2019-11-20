@@ -6,7 +6,7 @@ RUN apk add --no-cache --update \
 RUN rm -f /etc/nginx/conf.d/*
 
 ENV SERVER_NAME akimul.com
-ENV PORT 80
+ENV PORT 8080
 ENV CLIENT_MAX_BODY_SIZE 1m
 ENV PROXY_READ_TIMEOUT 60s
 ENV WORKER_PROCESSES auto
@@ -22,5 +22,5 @@ RUN chmod -R 777 /var/log/nginx /var/cache/nginx /var/run \
 # use SIGQUIT for graceful shutdown
 # c.f. http://nginx.org/en/docs/control.html
 STOPSIGNAL SIGQUIT
-
+EXPOSE 8080
 ENTRYPOINT ["/run.sh"]
